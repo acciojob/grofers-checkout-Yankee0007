@@ -3,17 +3,24 @@ getSumBtn.innerText = "Get Total Price";
 document.body.appendChild(getSumBtn);
 
 const getSum = () => {
-  const prices = document.querySelectorAll(".price");
+  // ✅ correct class name
+  const prices = document.querySelectorAll(".prices");
 
   let total = 0;
+
   prices.forEach((price) => {
-    total = total + Number(price.innerText);
+    total += Number(price.innerText);
   });
+
   const table = document.querySelector("table");
+
+  // agar pehle se total row ho toh hata do
   const oldTotal = document.getElementById("total-row");
   if (oldTotal) {
     oldTotal.remove();
   }
+
+  // new row create karo
   const tr = document.createElement("tr");
   tr.id = "total-row";
 
